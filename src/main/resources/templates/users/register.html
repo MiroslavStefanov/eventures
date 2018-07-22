@@ -1,0 +1,50 @@
+<div class="jumbotron-fluid" xmlns:th="http://www.thymeleaf.org">
+    <h1 class="text-center font-weight-bold pt-2" th:text="'Register'"></h1>
+    <hr class="thick resev"/>
+
+    <!--/*@thymesVar id="viewModel" type="org.softuni.eventures.domain.models.binding.UserLoginBindingModel"*/-->
+    <div class="container-fluid justify-content-center d-flex">
+        <form method="post" th:object="${viewModel}">
+            <div class="form-row">
+                <th:block th:insert="fragments/forms/form-control"
+                          th:with="type='text',label='Username',fieldName='username',placeholder='Username...'">
+                </th:block>
+                <th:block th:insert="fragments/forms/form-control"
+                          th:with="type='text',label='Email',fieldName='email',placeholder='Email...'">
+                </th:block>
+            </div>
+
+            <div class="form-row">
+                <th:block th:insert="fragments/forms/form-control"
+                          th:with="type='password',label='Password',fieldName='password',placeholder='Password...'">
+                </th:block>
+                <th:block th:insert="fragments/forms/form-control"
+                          th:with="type='password',label='Confirm Password',fieldName='confirmPassword',placeholder='Confirm Password...'">
+                </th:block>
+            </div>
+
+            <hr class="thick resev"/>
+
+            <div class="form-row">
+                <th:block th:insert="fragments/forms/form-control"
+                          th:with="type='text',label='First Name',fieldName='firstName',placeholder='First Name...'">
+                </th:block>
+                <th:block th:insert="fragments/forms/form-control"
+                          th:with="type='text',label='Last Name',fieldName='lastName',placeholder='Last Name...'">
+                </th:block>
+            </div>
+
+                <th:block th:insert="fragments/forms/form-control"
+                          th:with="type='text',label='UCN',fieldName='uniqueCitizenNumber',placeholder='Unique Citizen Number...',labelClass='container text-center'">
+                </th:block>
+
+            <hr class="thick resev"/>
+
+            <div class="form-group">
+                <div class="d-flex justify-content-center">
+                    <input type="submit" class="btn bg-resev" th:value="'Register'"/>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

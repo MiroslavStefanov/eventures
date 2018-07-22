@@ -1,0 +1,21 @@
+.bg-resev {
+    background-color: #AFEEEE;
+}
+
+textarea{
+    resize: none;
+}
+
+hr.thick{
+    height: 2px;
+}
+
+hr.dark{
+    color: #000;
+    background-color: #000;
+}
+
+hr.resev{
+    color: #AFEEEE;
+    background-color: #AFEEEE;
+}

@@ -1,0 +1,26 @@
+<table class="table" xmlns:th="http://www.thymeleaf.org"
+       xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+    <h1 class="text-center font-weight-bold pt-2" th:text="'All Events'"></h1>
+    <hr class="thick resev"/>
+    <!--/*@thymesVar id="viewModel" type="java.util.List<org.softuni.eventures.domain.models.view.VirusShowViewModel>"*/-->
+    <!--/*@thymesVar id="event" type="org.softuni.eventures.domain.models.view.VirusShowViewModel"*/-->
+    <thead>
+    <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Start</th>
+        <th scope="col">End</th>
+        <th scope="col">Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="event, iter : ${viewModel}" th:object="${event}">
+        <th scope="row" th:text="${iter.index + 1}"></th>
+        <td th:text="*{name}"></td>
+        <td th:text="*{magnitude}"></td>
+        <td th:text="*{#temporals.format(releasedOn, 'dd-MMM-yyyy')}"></td>
+        <td sec:authorize="hasAnyAuthority('ADMIN', 'MODERATOR')"><a class="btn btn-light border-dark" th:href="@{/viruses/edit/{id}(id = *{id})}">Edit</a></td>
+        <td sec:authorize="hasAnyAuthority('ADMIN', 'MODERATOR')"><a class="btn btn-light border-dark" th:href="@{/viruses/delete/{id}(id = *{id})}">Delete</a></td>
+    </tr>
+    </tbody>
+</table>

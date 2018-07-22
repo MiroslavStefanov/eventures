@@ -1,0 +1,10 @@
+<input xmlns:th="http://www.thymeleaf.org"
+       th:type="${type}"
+       th:id="${fieldName}"
+       th:name="__${fieldName}__"
+       th:value="*{__${fieldName}__}"
+       th:field="*{__${fieldName}__}"
+       th:placeholder="${placeholder != null ? placeholder : ''}"
+       th:classappend="|${hasError ? 'is-invalid' : ''} ${inputClass != null ? inputClass : ''}|"
+       th:readonly="${isDisabled != null && isDisabled}"
+/>

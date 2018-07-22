@@ -1,0 +1,29 @@
+<div class="jumbotron-fluid" xmlns:th="http://www.thymeleaf.org">
+    <h1 class="text-center font-weight-bold pt-2" th:text="'Login'"></h1>
+    <hr class="thick resev"/>
+
+    <!--/*@thymesVar id="viewModel" type="org.softuni.eventures.domain.models.binding.UserLoginBindingModel"*/-->
+    <div class="container w-50">
+        <form method="post" th:object="${viewModel}">
+            <th:block th:insert="fragments/forms/form-control"
+                      th:with="type='text',label='Username or Email',fieldName='username'">
+            </th:block>
+            <th:block th:insert="fragments/forms/form-control"
+                      th:with="type='password',label='Password',fieldName='password',errorText='Invalid username or password'">
+            </th:block>
+            <hr class="thick resev"/>
+                <div class="justify-content-center d-flex">
+                        <div class="form-check mb-0">
+                            <input type="checkbox" name="rememberMe" id="rememberMe"/>
+                            <label for="rememberMe">Remember Me</label>
+                        </div>
+                </div>
+            <hr class="thick resev"/>
+            <div class="form-group">
+                <div class="d-flex justify-content-center">
+                    <input type="submit" class="btn bg-resev" th:value="'Login'"/>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

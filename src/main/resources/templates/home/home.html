@@ -1,0 +1,10 @@
+<div class="jumbotron-fluid bg-resev mt-3" xmlns:th="http://www.thymeleaf.org"
+     xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+    <div class="container-fluid pt-5 pb-5">
+        <h2 class="text-center" sec:authorize="hasAuthority('USER')" th:text="|Welcome, ${#authentication.principal.firstName}&excl;|"></h2>
+        <h2 class="text-center" sec:authorize="hasAuthority('ADMIN')" th:text="|Greetings, Administrator &dash; ${#authentication.principal.firstName}&excl;|"></h2>
+        <hr class="thick dark"/>
+        <h3 class="text-secondary text-center" sec:authorize="hasAuthority('USER')">Eventures wishes you an exciting experience.</h3>
+        <h3 class="text-secondary text-center" sec:authorize="hasAuthority('ADMIN')">Enjoy your work.</h3>
+    </div>
+</div>
